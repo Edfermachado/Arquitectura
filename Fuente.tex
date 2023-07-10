@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Formulario}
+\author{Edwin Machado, C.I:30.532.641}
+\date{08 Julio 2023}
+\usepackage{amsmath,amsthm,amssymb,hyperref}
+\begin{document}
+\maketitle
+\section{Prestaciones}
+        
+        \hbox{$prestaciones_{X}=\frac{1}{\text{tiempo de ejecucion}}$}\vspace{6pt}
+        \hbox{$\frac{prestaciones_{X}}{prestaciones_{Y}}=n$}\vspace{6pt}
+        \hbox{$\frac{prestaciones_{X}}{pretaciones_{Y}}=\frac{\text{tiempo de ejecucion}_{Y}}{\text{tiempo de ejecucion}_{Y}}=n$}\vspace{9pt}
+        
+\section{Prestaciones de la CPU y sus factores}
+        \hbox{$\text{tiempo de ejecucion del CPU}=\text{ciclos del reloj CPU}\times\text{tiempo del ciclo del reloj}$}\vspace{8pt}
+       \hbox{$\text{tiempo de ejecucion de CPU para un programa} = \frac{\text{ciclos de reloj de la CPU para el programa}}{\text{frecuencia del reloj}}$}\vspace{8pt}
+       \hbox{$\text{ciclos del reloj del CPU = tiempo del CPU}\times\text{frecuencia del reloj}$}\vspace{8pt}
+       \hbox{$\text{frecuencia del reloj}=\frac{\text{ciclos del reloj del CPU}}{\text{Tiempo del CPU}}$}\vspace{8pt}
+\section{Prestaciones de las intrucciones}
+        \hbox{$\text{ciclos de reloj del CPU = instrucciones de un programa}\times \text{media de ciclos por instrucciones}$}\vspace{8pt}
+\section{La ecuacion clasica de las prestaciones de la CPU}
+        \hbox{$\text{tiempo de ejecucion = numero de instrucciones}\times \text{CPI}\times \text{tiempo de ciclo}$}\vspace{8pt}
+        \hbox{$\text{tiempo de ejecucion}=\frac{\text{numero de instrucciones}\times\text{CPI}}{\text{frecuencia del reloj}}$}\vspace{8pt}
+        \hbox{$\text{ciclos de reloj del CPU} = \sum_{i=1}^n(CPI_{i})\times C_{i}$}\vspace{8pt}
+        \hbox{$CPI = \frac{\text{ciclos del reloj del CPU}}{\text{numero de instrucciones}}$}\vspace{8pt}
+        \hbox{$tiempo=\frac{segundos}{programa}=\frac{instrucciones}{programa}\times \frac{\text{ciclos del reloj}}{instruccion}\times\frac{segundos}{\text{ciclo del reloj}}$}\vspace{8pt}
+\section{El muro de la potencia}
+        \hbox{$\text{potencia = carga capacitiva}\times \text{Voltaje}^2\times \text{frecuencia de conmutacion}$}\vspace{8pt}
+\section{Potencia relativa}
+        \hbox{$\frac{potencia_{nuevo}}{potencia_{viejo}}$}\vspace{8pt}
+\section{coste de un circuito integrado}
+    \hbox{$\text{coste por dado}=\frac{\text{coste por oblea}}{\text{dado por oblea}\times\text{factor de produccion}}$}\vspace{8pt}
+    \hbox{$\text{dados por oblea}=\frac{\text{area de la oblea}}{\text{area del dado}}$}\vspace{8pt}
+    \hbox{$\text{factor de produccion}=\frac{1}{(1+(\text{defectos por area}\times \frac{\text{area del dado}}{2}))^2}$}\vspace{8pt}
+\section{evaluacion de la CPU con programas de prueba SPEC}
+    \hbox{$n\sqrt{(\prod_{i=1}^n\text{relaciones del tiempo de ejecucion}_{i})}$}\vspace{8pt}
+    \hbox{$\text{ssjops global por vatio}=\frac{\sum_{i=0}^{10} ssjops_{i}}{\sum_{i=0}^{10} potencia}_{i}$} \vspace{8pt}
+\section{ley de Amdahal}
+    \hbox{$\text{Tiempo de ejecucion despues de mejoras =}\frac{\text{tiempo de ejecucion por mejora}}{\text{cantidad de mejora}}+\text{tiempo de ejecucion no afectado}$}\vspace{8pt}
+\section{MIPS}
+        \hbox{$MIPS = \frac{\text{numero de instrucciones}}{\text{tiempo de ejecucion}\times 10^6}$}\vspace{8pt}
+
+        \hbox{$MIPS = \frac{\text{numero de instrucciones}}{\frac{\text{numero de instruciones} \times CPI}{\text{frecuencia del reloj}}\times 10^6}=\frac{\text{frecuencia del reloj}}{CPI\times 10^6}$}
+        
+\end{document}
