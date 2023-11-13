@@ -64,6 +64,17 @@ la primera linea del archivo indica el numero de casos de prueba, a partir de ah
 
 En este caso, tenemos 1 caso de prueba con 5 consulta, las cuales son: 0,8,0,6,8
 
+## para compilar en c++
+g++ -o nombre del archivo.out nombre del archivo.cpp
+
+luego
+
+ ./nombre del archivo.out 
+
+para entrada estándar 
+
+./ nombre del archivo.out <archivo.txt
+
 # Estudiantes
 
 José Rivero C.I:  28.492.353
