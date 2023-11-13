@@ -49,3 +49,9 @@ Un conjunto y un valor.
 Retorna 1 si el valor está en el conjunto, 0 de lo contrario.
 
 Esencialmente, este programa simula cómo funcionaría una caché con diferentes estrategias de organización en respuesta a consultas de direcciones de bloques. Los mensajes "ACIERTO" indican que la dirección estaba en la caché, mientras que "FALLO" indica que la dirección no estaba en la caché y se realizó una actualización. 
+
+# Estudiantes
+
+José Rivero C.I:  28.492.353
+
+Edwin Machado C.I: 30.532.641
