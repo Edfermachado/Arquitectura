@@ -51,7 +51,7 @@ Retorna 1 si el valor está en el conjunto, 0 de lo contrario.
 Esencialmente, este programa simula cómo funcionaría una caché con diferentes estrategias de organización en respuesta a consultas de direcciones de bloques. Los mensajes "ACIERTO" indican que la dirección estaba en la caché, mientras que "FALLO" indica que la dirección no estaba en la caché y se realizó una actualización. 
 
 # Formato de entrada
-El formato de entreda es el siguiente:
+El formato de entrada es el siguiente:
 la primera linea del archivo indica el numero de casos de prueba, a partir de ahi la primera linea indica en numero de consultas que se va a realizar en ese caso de prueba, y la siguente linea contiene las consultas a realizar
 
 ## asi:
