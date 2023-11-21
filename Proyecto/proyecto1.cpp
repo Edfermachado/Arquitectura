@@ -1,13 +1,13 @@
 #include<iostream>
 using namespace std;
 const int MAX=100;
-void correspondenciaDirecta(int numBloque[MAX], int n);
-void asociativaDeDosVias(int numBloque[MAX], int n);
-void completamenteAsociativa(int numBloque[MAX], int n);
+void correspondenciaDirecta(int numBloque[MAX], int n,int* contAciertos);
+void asociativaDeDosVias(int numBloque[MAX], int n,int* contAciertos);
+void completamenteAsociativa(int numBloque[MAX], int n,int* contAciertos);
 int esta(int conjuntoARev[4], int valor);
 int main(){
 	int dirBloque[MAX];
-	int num,j,i,casosPrueba;
+	int num,j,i,casosPrueba,cont1,cont2,cont3;
 	
 	cin>>casosPrueba;
 	for (i=0;i<casosPrueba;i++){
@@ -15,21 +15,36 @@ int main(){
 		for(j=0;j<num;j++){
 			cin>>dirBloque[j];
 			}
+		cont1=0;
+		cont2=0;
+		cont3=0;
 		cout<<"\nEl Resultado de la simulacion usando Cache de Correspondencia Directa es:\n\n";
-		correspondenciaDirecta(dirBloque,num);
+		correspondenciaDirecta(dirBloque,num,&cont1);
+		cout<<"\nNr de aciertos:"<<cont1<<"\nNr de Fallos:"<<num-cont1;
 		
 		cout<<"\nEl Resultado de la simulacion usando Cache Asociativa de dos Vias es:\n\n";
-		asociativaDeDosVias(dirBloque,num);
+		asociativaDeDosVias(dirBloque,num,&cont2);
+		cout<<"\nNr de aciertos:"<<cont2<<"\nNr de Fallos:"<<num-cont2<<"\n\n";
 		
 		cout<<"\nEl Resultado de la simulacion usando Cache Completamente Asociativa es:\n\n";
-		completamenteAsociativa(dirBloque,num);
+		completamenteAsociativa(dirBloque,num,&cont3);
+		cout<<"\nNr de aciertos:"<<cont3<<"\nNr de Fallos:"<<num-cont3<<"\n";
+		cout<<"En este caso, la cache con mejores prestaciones es:\n";
+		if (cont1>=cont2 && cont1>=cont3) {
+			cout<<"Cache de Correspondencia Directa";
+		}else if(cont2>=cont1 && cont2>=cont3) {
+			cout<<"Cache Asociativa de Dos Vias";
+		} else {
+			cout << "Cache Completamente Asociativa\n";
+		}
+
 	}
 		
 	
 	return 0;
 	}
 
-void correspondenciaDirecta(int numBloque[MAX], int n){
+void correspondenciaDirecta(int numBloque[MAX], int n,int* contAciertos){
 	int bloqueCacheVal[MAX];
 	int cacheCorrDir[MAX];
 	int i;
@@ -42,6 +57,7 @@ void correspondenciaDirecta(int numBloque[MAX], int n){
 	for (i=0;i<n;i++){
 		if(numBloque[i]==cacheCorrDir[bloqueCacheVal[i]]){
 			cout<<"	ACIERTO\n";
+			*contAciertos=*contAciertos+1;
 		}else{
 			cout<<" FALLO\n";
 			cacheCorrDir[bloqueCacheVal[i]]=numBloque[i];
@@ -49,7 +65,7 @@ void correspondenciaDirecta(int numBloque[MAX], int n){
 		}
 	}
 
-void asociativaDeDosVias(int numBloque[MAX], int n){
+void asociativaDeDosVias(int numBloque[MAX], int n,int* contAciertos){
 	int conjunto0[2];
 	int conjunto1[2];
 	int conjVal[MAX];
@@ -69,6 +85,7 @@ void asociativaDeDosVias(int numBloque[MAX], int n){
 		if(conjVal[i]==0){
 			if(numBloque[i]==conjunto0[0]||numBloque[i]==conjunto0[1]){
 				cout<<"ACIERTO\n";
+				*contAciertos=*contAciertos+1;
 			}else{
 				cout<<"FALLO\n";
 				if(conjunto0[0]==mrcj0){
@@ -81,6 +98,7 @@ void asociativaDeDosVias(int numBloque[MAX], int n){
 		}else{
 			if(numBloque[i]==conjunto1[0]||numBloque[i]==conjunto1[1]){
 				cout<<"ACIERTO\n";
+				*contAciertos=*contAciertos+1;
 			}else{
 				cout<<"FALLO\n";
 				if(conjunto1[0]==mrcj1){
@@ -94,7 +112,7 @@ void asociativaDeDosVias(int numBloque[MAX], int n){
 		}
 }
 
-void completamenteAsociativa(int numBloque[MAX], int n){
+void completamenteAsociativa(int numBloque[MAX], int n,int* contAciertos){
 	int conjunto[4];
 	int i,bandAux,j, ultLlamado;
 	
@@ -106,6 +124,7 @@ void completamenteAsociativa(int numBloque[MAX], int n){
 	for (i=0;i<n;i++){
 		if(esta(conjunto,numBloque[i])==1){
 			cout<<"ACIERTO\n";
+			*contAciertos=*contAciertos+1;
 		}else{
 			cout<<"FALLO\n";
 			if(j==n-1){
