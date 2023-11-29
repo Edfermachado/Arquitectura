@@ -1,7 +1,7 @@
 .data
 
-	array: .word 1 5 6 4 9 7 10 11 15 # Arreglo desordenado
-	tam: .word 9 #Tamanno del arreglo
+	array: .space 200 # Reservar memoria para el arreglo
+	tam: .word 0 # Tamanno del arreglo
 	message1: .asciiz "El arreglo desordenado es: \n"
 	message3: .asciiz "Ingrese un numero para el arreglo: "
 	newLine: .asciiz "\n"
